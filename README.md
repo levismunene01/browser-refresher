@@ -29,15 +29,18 @@ You can choose between different scripts:
 
 2. Install dependencies inside a Pipenv virtual environment:
    
-   ```pipenv install selenium webdriver-manager requests
+   ``` bash
+   pipenv install selenium webdriver-manager requests
 
 3. Activate the virtual environment:
 
-   ``` pipenv shell
+   ```bash
+    pipenv shell
+
 
 ⚙️ Brave Browser Configuration (per OS)
 
-You must set the binary location for Brave depending on your OS.
+You must set the binary location for Brave depending on your operating system.
 
 🐧 Linux
 
@@ -84,6 +87,7 @@ pipenv run python performance_detailed.py
 
 4. Visual Refresh (Terminal Bar Chart)
 pipenv run python visual_refresh.py
+
 
 
 
