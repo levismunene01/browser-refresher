@@ -3,18 +3,26 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 import time
+import os
 
-# your target site
-url = "https://www.forexfactory.com/trades"
+
+# enter your url here
+url = "https://example.com"
 
 options = Options()
-options.binary_location = "/usr/bin/brave-browser"  # change path if needed
+options.binary_location = "/usr/bin/brave-browser"
+
+# use a separate Selenium profile folder
+selenium_profile = "/home/dextermnesh/.config/BraveSoftware/Brave-Browser-Selenium"
+os.makedirs(selenium_profile, exist_ok=True)
+
+# uses default profile
+options.add_argument(f"--user-data-dir={selenium_profile}")
+options.add_argument("--profile-directory=Default")
 
 driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-
 driver.get(url)
 
-# keep refreshing every 1 minute
 while True:
     time.sleep(60)
     driver.refresh()
